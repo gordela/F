@@ -2,7 +2,6 @@
   "name": "mshoes",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000/",
   "dependencies": {
     "@hapi/joi": "^15.0.3",
     "axios": "^0.18.0",
@@ -43,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devServer": {
+    "disableHostCheck": true
   }
 }
