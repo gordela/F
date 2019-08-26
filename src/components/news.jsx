@@ -113,7 +113,6 @@ class Projects extends Component {
         <h1>
           <span class="first-letter">N</span>ews
         </h1>
-        <br />
         {/* <SearchBox value={searchQuery} onChange={this.handleSearch} /> */}
         <NewsFlex
           count={this.props.count}

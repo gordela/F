@@ -37,8 +37,8 @@ class EditProject extends Form {
     longImage: Joi.string().required(),
     shortDesc: Joi.string().required(),
     longDesc: Joi.string().required(),
-    twLink: Joi.string().required(),
-    fbLink: Joi.string().required(),
+    twLink: Joi.string(),
+    fbLink: Joi.string(),
     categoryId: Joi.string().required()
   };
 
@@ -97,6 +97,8 @@ class EditProject extends Form {
           {this.renderInput("longImage", "Picture Two")}
           {this.renderInput("client", "Client")}
           {this.renderInput("shortDesc", "Short description")}
+          {this.renderInput("twLink", "Twitter Link")}
+          {this.renderInput("fbLink", "Facebook link")}
           {this.renderInput("longDesc", "Long description")}
           {this.renderSelect("categoryId", "Category", this.state.categories)}
           {this.renderButton("Submit")}

@@ -9,54 +9,40 @@ class NewsFlex extends Component {
     const isAdmin = auth.isAdmin();
 
     return (
-      <div
-        style={{ minHeight: "60vh" }}
-        className="d-flex justify-content-around flex-wrap"
-      >
+      <div>
+        <hr />
         {newss.map(news => (
-          <div
-            key={news._id}
-            className="card m-1"
-            style={{ maxWidth: "15rem" }}
-          >
-            {isAdmin && (
-              <Link
-                to={"/news/" + news._id}
-                className="mt-auto btn btn-primary"
-              >
-                Edit
-              </Link>
-            )}
-
-            <Link to={"/news/" + news._id}>
-              {" "}
-              <img src={news.longImage} className="card-img-top" alt="..." />
-            </Link>
-
-            <div className="card-body flex-column d-flex">
-              <h5 className="card-title">{news.title}</h5>
-              <p className="card-text">{news.shortDesc}</p>
-              {isAdmin && (
-                <React.Fragment>
-                  <Button
-                    onClick={() => onDelete(news)}
-                    variant="btn btn-danger"
-                    className="mt-auto"
-                  >
-                    Delete
-                  </Button>
-                  <br />
-                </React.Fragment>
-              )}
-              {
-                <Button
-                  onClick={() => this.addToCart(news._id)}
-                  variant="btn btn-primary btn-emg"
-                  className="mt-auto"
-                >
-                  Read More
-                </Button>
-              }
+          <div className="card mb-4">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-lg-6">
+                  <a href="#">
+                    <img
+                      className="img-fluid rounded"
+                      src={news.shortImage}
+                      alt=""
+                    />
+                  </a>
+                </div>
+                <div className="col-lg-6">
+                  <h2 className="card-title">Post Title</h2>
+                  <p className="card-text">{news.shortDesc}</p>
+                  <Link to={"#"} className="btn btn-primary">
+                    Read More →
+                  </Link>
+                  {isAdmin && (
+                    <Link
+                      to={"/news/" + news._id}
+                      className="mt-auto btn btn-primary"
+                    >
+                      Edit
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="card-footer text-muted">
+              {Date(news.publishDate)}
             </div>
           </div>
         ))}
