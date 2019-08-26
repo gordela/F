@@ -10,6 +10,11 @@ function projectUrl(id) {
 export function getProjects() {
   return http.get(apiEndpoint);
 }
+
+export function getProjectsCategorised(id) {
+  return http.get(apiEndpoint + "/category/" + id);
+}
+
 export function deleteProject(id) {
   return http.delete(projectUrl(id));
 }

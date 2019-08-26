@@ -9,57 +9,58 @@ class ProjectFlex extends Component {
     const isAdmin = auth.isAdmin();
 
     return (
-      <div
-        style={{ minHeight: "60vh" }}
-        className="d-flex justify-content-around flex-wrap"
-      >
+      <div className="row">
         {projects.map(project => (
-          <div
-            key={project._id}
-            className="card m-1"
-            style={{ maxWidth: "15rem" }}
-          >
-            {isAdmin && (
-              <Link
-                to={"/projects/" + project._id}
-                className="mt-auto btn btn-primary"
-              >
-                Edit
+          <div className="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div className="card h-100">
+              <Link to={"/projects/" + project._id}>
+                <img
+                  className="card-img-top"
+                  src={project.shortImage}
+                  alt={project.shortDesc}
+                />
               </Link>
-            )}
-
-            <Link to={"/projects/" + project._id}>
-              {" "}
-              <img src={project.longImage} className="card-img-top" alt="..." />
-            </Link>
-
-            <div className="card-body flex-column d-flex">
-              <h5 className="card-title">{project.title}</h5>
-              <p className="card-text">
-                Client: {project.client} <br /> Duration: {project.duration}{" "}
-                Hours <br /> {project.shortDesc}
-              </p>
-              {isAdmin && (
-                <React.Fragment>
+              <div className="card-body">
+                <h4 className="card-title">
+                  <a href="#">{project.title}</a>
+                </h4>
+                <p className="card-text">{project.shortDesc}</p>
+                <p className="card-text">
+                  <b>Duration:</b> {project.duration} Hours
+                </p>
+                <p className="card-text">
+                  <b>Client:</b> {project.client}
+                </p>
+                {!isAdmin && (
                   <Button
                     onClick={() => onDelete(project)}
-                    variant="btn btn-danger"
-                    className="mt-auto"
+                    variant="btn emg-btn"
+                    className="mt-auto card-btn btn btn-primary"
                   >
-                    Delete
+                    Make Feedback
                   </Button>
-                  <br />
-                </React.Fragment>
-              )}
-              {
-                <Button
-                  onClick={() => this.addToCart(project._id)}
-                  variant="btn btn-primary btn-emg"
-                  className="mt-auto"
-                >
-                  Make Feedback
-                </Button>
-              }
+                )}
+
+                {isAdmin && (
+                  <React.Fragment>
+                    <Link
+                      to={"/projects/" + project._id}
+                      className="mt-auto card-btn btn btn-primary"
+                    >
+                      Edit
+                    </Link>
+
+                    <Button
+                      onClick={() => onDelete(project)}
+                      variant="btn card-btn btn-danger"
+                      className="mt-auto"
+                    >
+                      Delete
+                    </Button>
+                    <br />
+                  </React.Fragment>
+                )}
+              </div>
             </div>
           </div>
         ))}

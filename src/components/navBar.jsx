@@ -56,9 +56,9 @@ class NavBar extends Component {
             </NavLink>
           </ul>
           <ul className="navbar-nav">
-            <form class="form-inline mt-2 mt-md-0">
+            <form className="form-inline mt-2 mt-md-0">
               <input
-                class="form-control mr-sm-2"
+                className="form-control mr-sm-2"
                 type="text"
                 placeholder="Search"
                 aria-label="Search"
@@ -67,20 +67,20 @@ class NavBar extends Component {
             <NavLink to="/portal" className="nav-link">
               Portal
             </NavLink>
-            <div class="nav-item dropdown">
+            <div className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 id="dropdown09"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <span class="flag-icon flag-icon-us"> </span> English
+                <span className="flag-icon flag-icon-us"> </span> English
               </a>
-              <div class="dropdown-menu" aria-labelledby="dropdown09">
-                <a class="dropdown-item" href="#ge">
-                  <span class="flag-icon flag-icon-ge"> </span> Georgian
+              <div className="dropdown-menu" aria-labelledby="dropdown09">
+                <a className="dropdown-item" href="#ge">
+                  <span className="flag-icon flag-icon-ge"> </span> Georgian
                 </a>
               </div>
             </div>

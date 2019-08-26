@@ -11,11 +11,10 @@ import Projects from "./components/projects";
 import auth from "./services/authService";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import EditStyle from "./components/editStyle";
 import Footer from "./components/footer";
 import Contact from "./components/contact";
 import News from "./components/news";
-
+import Categorised from "./components/Categorised";
 class App extends Component {
   state = {};
   componentDidMount() {
@@ -33,6 +32,7 @@ class App extends Component {
             <Route path="/login" component={LoginForm} />
             <Route path="/contact" component={Contact} />
             <Route path="/news" component={News} />
+            <Route path="/projects/category/:id" component={Categorised} />
             <ProtectedRoute path="/projects/:id" component={EditProject} />
             {/* <ProtectedRoute path="/category/:id" component={EditCategory} />
           <ProtectedRoute path="/news/:id" component={EditNews} />
@@ -42,6 +42,7 @@ class App extends Component {
               path="/projects"
               render={props => <Projects user={this.state.user} {...props} />}
             />
+
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/projects" />
             <Redirect to="/not-found" />

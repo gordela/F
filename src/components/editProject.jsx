@@ -8,15 +8,17 @@ class EditProject extends Form {
   state = {
     data: {
       title: "",
-      numberInStock: "",
-      price: "",
-      picture: "",
-      pictureTwo: "",
-      gender: "",
-      styleId: "",
-      countInBag: 0
+      client: "",
+      duration: "",
+      fbLink: "",
+      twLink: "",
+      longDesc: "",
+      shortDesc: "",
+      longImage: "",
+      shortImage: "",
+      categoryId: ""
     },
-    styles: [],
+    categories: [],
     errors: {}
   };
   schema = {
@@ -24,25 +26,25 @@ class EditProject extends Form {
     title: Joi.string()
       .required()
       .label("Title"),
-    numberInStock: Joi.number()
+    client: Joi.string()
+      .required()
+      .label("Client"),
+    duration: Joi.number()
       .required()
       .min(0)
-      .max(1000)
-      .label("Number in Stock"),
-    price: Joi.number()
-      .required()
-      .min(0)
-      .label("Price"),
-    picture: Joi.string().required(),
-    pictureTwo: Joi.string().required(),
-    gender: Joi.string().required(),
-    countInBag: Joi.number(),
-    styleId: Joi.string().required()
+      .label("Duration"),
+    shortImage: Joi.string().required(),
+    longImage: Joi.string().required(),
+    shortDesc: Joi.string().required(),
+    longDesc: Joi.string().required(),
+    twLink: Joi.string().required(),
+    fbLink: Joi.string().required(),
+    categoryId: Joi.string().required()
   };
 
   async populateStyles() {
-    const { data: styles } = await getCategories();
-    this.setState({ styles });
+    const { data: categories } = await getCategories();
+    this.setState({ categories });
   }
 
   async populateShoe() {
@@ -66,20 +68,22 @@ class EditProject extends Form {
     return {
       _id: shoe._id,
       title: shoe.title,
-      styleId: shoe.style._id,
-      numberInStock: shoe.numberInStock,
-      picture: shoe.picture,
-      pictureTwo: shoe.pictureTwo,
-      gender: shoe.gender,
-      price: shoe.price,
-      countInBag: shoe.countInBag
+      categoryId: shoe.category._id,
+      client: shoe.client,
+      shortImage: shoe.shortImage,
+      longImage: shoe.longImage,
+      shortDesc: shoe.shortDesc,
+      longDesc: shoe.longDesc,
+      duration: shoe.duration,
+      fbLink: shoe.fbLink,
+      twLink: shoe.twLink
     };
   }
 
   doSubmit = async () => {
     await saveProject(this.state.data);
 
-    this.props.history.push("/shoes");
+    this.props.history.push("/projects");
   };
 
   render() {
@@ -88,13 +92,13 @@ class EditProject extends Form {
         <h1>Edit Project</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
-          {this.renderInput("numberInStock", "Number in Stock", "number")}
-          {this.renderInput("picture", "Picture")}
-          {this.renderInput("pictureTwo", "Picture Two")}
-          {this.renderInput("price", "Price", "number")}
-          {this.renderInput("countInBag", "Count In Bag", "number")}
-          {this.renderInput("gender", "Gender")}
-          {this.renderSelect("styleId", "Style", this.state.styles)}
+          {this.renderInput("duration", "Duration", "number")}
+          {this.renderInput("shortImage", "Picture One")}
+          {this.renderInput("longImage", "Picture Two")}
+          {this.renderInput("client", "Client")}
+          {this.renderInput("shortDesc", "Short description")}
+          {this.renderInput("longDesc", "Long description")}
+          {this.renderSelect("categoryId", "Category", this.state.categories)}
           {this.renderButton("Submit")}
         </form>
       </div>
