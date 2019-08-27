@@ -24,12 +24,6 @@ class Projects extends Component {
     sortColumn: { path: "title", order: "asc" }
   };
 
-  async componentDidMount() {
-    const { data: categories } = await getCategories();
-    const { data: projects } = await getProjects();
-    this.setState({ categories, projects });
-  }
-
   handleDelete = async project => {
     const originalProjects = this.state.projects;
     const projects = originalProjects.filter(s => s._id !== project._id);
@@ -45,8 +39,8 @@ class Projects extends Component {
   };
 
   render() {
-    const { length: count } = this.state.categories;
-    const { categories, projects } = this.state;
+    const { length: count } = this.props.categories;
+    const { categories, projects } = this.props;
     const { user } = this.props;
     let isAdmin = false;
     if (user) isAdmin = user.isAdmin;

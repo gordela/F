@@ -36,7 +36,7 @@ class NavBar extends Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul className="navbar-nav mr-auto">
-            <NavLink to="/projects" className="nav-link">
+            <NavLink to="/home" className="nav-link">
               Home
             </NavLink>
             <NavLink to="/about" className="nav-link">

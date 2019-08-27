@@ -12,7 +12,7 @@ class NewsFlex extends Component {
       <div>
         <hr />
         {newss.map(news => (
-          <div className="card mb-4">
+          <div key={news._id} className="card mb-4">
             <div className="card-body">
               <div className="row">
                 <div className="col-lg-6">

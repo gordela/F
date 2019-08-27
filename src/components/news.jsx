@@ -9,7 +9,7 @@ import _ from "lodash";
 import NewsFlex from "./newsFlex";
 import { getNews } from "../services/newsService";
 
-class Projects extends Component {
+class News extends Component {
   state = {
     newss: [],
     categories: [],
@@ -22,7 +22,7 @@ class Projects extends Component {
   };
 
   async componentDidMount() {
-    const { data: newss } = await getNews();
+    const { newss } = this.props;
     this.setState({ newss });
   }
 
@@ -68,11 +68,11 @@ class Projects extends Component {
     const {
       pageSize,
       currentPage,
-      newss: allProjects,
       selectedStyle,
       sortColumn,
       searchQuery
     } = this.state;
+    const { newss: allProjects } = this.props;
     let filtered = allProjects;
 
     if (searchQuery)
@@ -89,7 +89,7 @@ class Projects extends Component {
   };
 
   render() {
-    const { length: count } = this.state.newss;
+    const { length: count } = this.props.newss;
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
     const { user } = this.props;
     let isAdmin = false;
@@ -99,7 +99,7 @@ class Projects extends Component {
     const { totalCount, data: newss } = this.getPagedData();
 
     return (
-      <React.Fragment>
+      <div className="container">
         {isAdmin && (
           <Link
             style={{ marginBottom: "10px" }}
@@ -111,7 +111,7 @@ class Projects extends Component {
         )}
         <br />
         <h1>
-          <span class="first-letter">N</span>ews
+          <span className="first-letter">N</span>ews
         </h1>
         {/* <SearchBox value={searchQuery} onChange={this.handleSearch} /> */}
         <NewsFlex
@@ -126,9 +126,9 @@ class Projects extends Component {
           onPageChange={this.handlePageChange}
           currentPage={currentPage}
         />
-      </React.Fragment>
+      </div>
     );
   }
 }
 
-export default Projects;
+export default News;

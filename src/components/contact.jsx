@@ -23,72 +23,131 @@ class Contact extends Component {
   }
   render() {
     return (
-      <React.Fragment>
-        <h1>
-          <span class="first-letter">C</span>ontact
+      <div className="container">
+        {/* Page Heading/Breadcrumbs */}
+        <h1 className="mt-4 mb-3">
+          Contact
+          <small>Subheading</small>
         </h1>
-
-        <div style={{ display: "flex" }}>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2977.9221375799393!2d44.74111595120802!3d41.72219897913296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40447310d0442439%3A0x741ac75e14ceafaa!2zOCDhg5nhg5Dhg5rhg5jhg6Hhg6Lhg6Dhg5Dhg6Lhg5Qg4YOl4YOj4YOX4YOQ4YOX4YOU4YOa4YOQ4YOr4YOY4YOhIOGDpeGDo-GDqeGDkCwg4YOX4YOR4YOY4YOa4YOY4YOh4YOYIDAxNzc!5e0!3m2!1ska!2sge!4v1566762151158!5m2!1ska!2sge"
-            width={this.state.viewport.width}
-            height={300}
-            frameBorder={0}
-            style={{ border: 0 }}
-            allowFullScreen
-          />
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li className="breadcrumb-item active">Contact</li>
+        </ol>
+        {/* Content Row */}
+        <div className="row">
+          {/* Map Column */}
+          <div className="col-lg-8 mb-4">
+            {/* Embedded Google Map */}
+            <iframe
+              width="100%"
+              height="400px"
+              frameBorder={0}
+              scrolling="no"
+              marginHeight={0}
+              marginWidth={0}
+              src="http://maps.google.com/maps?hl=en&ie=UTF8&ll=37.0625,-95.677068&spn=56.506174,79.013672&t=m&z=4&output=embed"
+            />
+          </div>
+          {/* Contact Details Column */}
+          <div className="col-lg-4 mb-4">
+            <h3>Contact Details</h3>
+            <p>
+              3481 Melrose Place
+              <br />
+              Beverly Hills, CA 90210
+              <br />
+            </p>
+            <p>
+              <abbr title="Phone">P</abbr>: (123) 456-7890
+            </p>
+            <p>
+              <abbr title="Email">E</abbr>:
+              <a href="mailto:name@example.com">name@example.com</a>
+            </p>
+            <p>
+              <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+            </p>
+          </div>
         </div>
-
-        <div style={{ padding: "10px" }} className="container">
-          <div className="container-contact">
-            <form action="action_page.php">
-              <label htmlFor="fname">First Name</label>
-              <input
-                type="text"
-                id="fname"
-                name="firstname"
-                placeholder="Your name.."
-              />
-              <label htmlFor="lname">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="Subject"
-              />
-              <label htmlFor="subject">Subject</label>
-              <textarea
-                id="subject"
-                name="subject"
-                placeholder="Write something.."
-                style={{ height: "200px" }}
-                defaultValue={""}
-              />
-              <input type="submit" defaultValue="Submit" />
+        {/* /.row */}
+        {/* Contact Form */}
+        {/* In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. */}
+        <div className="row">
+          <div className="col-lg-8 mb-4">
+            <h3>Send us a Message</h3>
+            <form name="sentMessage" id="contactForm" noValidate>
+              <div className="control-group form-group">
+                <div className="controls">
+                  <label>Full Name:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    required
+                    data-validation-required-message="Please enter your name."
+                  />
+                  <p className="help-block" />
+                </div>
+              </div>
+              <div className="control-group form-group">
+                <div className="controls">
+                  <label>Phone Number:</label>
+                  <input
+                    type="tel"
+                    className="form-control"
+                    id="phone"
+                    required
+                    data-validation-required-message="Please enter your phone number."
+                  />
+                  <div className="help-block" />
+                </div>
+              </div>
+              <div className="control-group form-group">
+                <div className="controls">
+                  <label>Email Address:</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    required
+                    data-validation-required-message="Please enter your email address."
+                  />
+                  <div className="help-block" />
+                </div>
+              </div>
+              <div className="control-group form-group">
+                <div className="controls">
+                  <label>Message:</label>
+                  <textarea
+                    rows={10}
+                    cols={100}
+                    className="form-control"
+                    id="message"
+                    required
+                    data-validation-required-message="Please enter your message"
+                    maxLength={999}
+                    style={{ resize: "none" }}
+                    defaultValue={""}
+                  />
+                  <div className="help-block" />
+                </div>
+              </div>
+              <div id="success" />
+              {/* For success/fail messages */}
+              <button
+                type="submit"
+                className="btn btn-primary"
+                id="sendMessageButton"
+              >
+                Send Message
+              </button>
             </form>
           </div>
         </div>
-        <h1>
-          <span class="first-letter">B</span>ranches
-        </h1>
-
-        <div class="container">
-          <div class="row">
-            {this.state.branches.map(branch => (
-              <div class="col-sm">
-                {" "}
-                <div style={{ display: "flex" }}>
-                  <FontAwesome name="fas fa-location-arrow" size="3x" />
-                  <div style={{ flexDirection: "column", marginLeft: "5px" }}>
-                    <p>{branch.text_one}</p>
-                    <p>{branch.text_two}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </React.Fragment>
+        {/* /.row */}
+      </div>
     );
   }
 }

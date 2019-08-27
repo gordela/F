@@ -11,9 +11,12 @@ class ProjectFlex extends Component {
     return (
       <div className="row">
         {projects.map(project => (
-          <div className="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div
+            key={project._id}
+            className="col-lg-3 col-md-4 col-sm-6 portfolio-item"
+          >
             <div className="card h-100">
-              <Link to={"/projects/" + project._id}>
+              <Link to={"/project/" + project._id}>
                 <img
                   className="card-img-top"
                   src={project.shortImage}
@@ -44,7 +47,7 @@ class ProjectFlex extends Component {
                 {isAdmin && (
                   <React.Fragment>
                     <Link
-                      to={"/projects/" + project._id}
+                      to={"/project/" + project._id}
                       className="mt-auto card-btn btn btn-primary"
                     >
                       Edit
