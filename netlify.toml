@@ -1,3 +1,7 @@
+[build]
+base = "emg/"
+publish = "emg/build/"
+command = "npm build"
 [[redirects]]
 from = "/*"
 to = "/index.html"
