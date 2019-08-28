@@ -48,18 +48,28 @@ class Projects extends Component {
     if (count === 0) return <p>There are no categories in the database</p>;
     return (
       <div className="container">
-        {isAdmin && (
-          <Link
-            style={{ marginBottom: "10px" }}
-            className="btn btn-primary"
-            to="/projects/new"
-          >
-            New Project
-          </Link>
-        )}
         <h1 className="mt-4 mb-3">
           <span className="first-letter">P</span>rojects
         </h1>
+        {isAdmin && (
+          <React.Fragment>
+            <Link
+              style={{ marginBottom: "10px" }}
+              className="btn btn-primary"
+              to="/projects/new"
+            >
+              New Project
+            </Link>
+            <span> </span>
+            <Link
+              style={{ marginBottom: "10px" }}
+              className="btn btn-primary"
+              to="/category/new"
+            >
+              New Category
+            </Link>
+          </React.Fragment>
+        )}
         <hr />
         <CategoriesFlex
           projects={projects}

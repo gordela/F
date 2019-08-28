@@ -89,7 +89,10 @@ input[type="submit"]:hover {
 .portfolio-item {
   margin-bottom: 30px;
 }
-
+.borderless td,
+.borderless th {
+  border: none;
+}
 .card-btn {
   margin-right: 1px;
 }

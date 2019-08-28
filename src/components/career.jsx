@@ -1,137 +1,95 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import auth from "../services/authService";
 
-class Contact extends Component {
+class Career extends Component {
   state = {};
   render() {
+    const { careers, onDelete } = this.props;
+    const isAdmin = auth.isAdmin();
     return (
       <div className="container">
-        {/* Page Heading/Breadcrumbs */}
-        <h1 className="mt-4 mb-3">
-          FAQ
-          <small>Subheading</small>
-        </h1>
+        <h1 className="mt-4 mb-3"></h1>
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
             <a href="index.html">Home</a>
           </li>
-          <li className="breadcrumb-item active">FAQ</li>
+          <li className="breadcrumb-item active">{this.constructor.name}</li>
         </ol>
+        {isAdmin && (
+          <Link
+            style={{ marginBottom: "10px" }}
+            className="btn btn-primary"
+            to="/career/new"
+          >
+            New Project
+          </Link>
+        )}
         <div
           className="mb-4"
           id="accordion"
           role="tablist"
           aria-multiselectable="true"
         >
-          <div className="card">
-            <div className="card-header" role="tab" id="headingOne">
-              <h5 className="mb-0">
-                <a
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseOne"
-                  aria-expanded="false"
-                  aria-controls="collapseOne"
-                  className="collapsed"
+          {careers &&
+            careers.map(career => (
+              <div className="card">
+                <div
+                  className="card-header"
+                  role="tab"
+                  id={"heading" + career._id}
                 >
-                  Collapsible Group Item #1
-                </a>
-              </h5>
-            </div>
-            <div
-              id="collapseOne"
-              className="collapse"
-              role="tabpanel"
-              aria-labelledby="headingOne"
-              style={{}}
-            >
-              <div className="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                wes anderson cred nesciunt sapiente ea proident. Ad vegan
-                excepteur butcher vice lomo. Leggings occaecat craft beer
-                farm-to-table, raw denim aesthetic synth nesciunt you probably
-                haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-header" role="tab" id="headingTwo">
-              <h5 className="mb-0">
-                <a
-                  className="collapsed"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <a
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href={"#collapse" + career._id}
+                          aria-expanded="false"
+                          aria-controls={"collapse" + career._id}
+                          className="collapsed"
+                        >
+                          {career.title}
+                        </a>
+                        {isAdmin && (
+                          <React.Fragment>
+                            <Link
+                              to={"/career/" + career._id}
+                              className="mt-auto card-btn btn btn-primary"
+                            >
+                              Edit
+                            </Link>
+                            <Button
+                              onClick={() => onDelete(career)}
+                              variant="btn card-btn btn-danger"
+                              className="mt-auto"
+                            >
+                              Delete
+                            </Button>
+                          </React.Fragment>
+                        )}
+                      </div>
+                      <div class="col-sm-3">{career.published}</div>
+                      <div class="col-sm-3">{career.endDate}</div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id={"collapse" + career._id}
+                  className="collapse"
+                  role="tabpanel"
+                  aria-labelledby={"heading" + career._id}
                 >
-                  Collapsible Group Item #2
-                </a>
-              </h5>
-            </div>
-            <div
-              id="collapseTwo"
-              className="collapse"
-              role="tabpanel"
-              aria-labelledby="headingTwo"
-            >
-              <div className="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                wes anderson cred nesciunt sapiente ea proident. Ad vegan
-                excepteur butcher vice lomo. Leggings occaecat craft beer
-                farm-to-table, raw denim aesthetic synth nesciunt you probably
-                haven't heard of them accusamus labore sustainable VHS.
+                  <div className="card-body">{career.description}</div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-header" role="tab" id="headingThree">
-              <h5 className="mb-0">
-                <a
-                  className="collapsed"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  Collapsible Group Item #3
-                </a>
-              </h5>
-            </div>
-            <div
-              id="collapseThree"
-              className="collapse"
-              role="tabpanel"
-              aria-labelledby="headingThree"
-            >
-              <div className="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                wes anderson cred nesciunt sapiente ea proident. Ad vegan
-                excepteur butcher vice lomo. Leggings occaecat craft beer
-                farm-to-table, raw denim aesthetic synth nesciunt you probably
-                haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
+            ))}
         </div>
       </div>
     );
   }
 }
 
-export default Contact;
+export default Career;
