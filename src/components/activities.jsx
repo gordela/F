@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import ActivitiesIndex from "./activitiesIndex";
+import Prices from "./prices";
+import Services from "./services";
 class Activities extends Component {
   state = {};
   render() {
     return (
-      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-        <Tab className="emg-a" eventKey="home" title="Markets">
-          <h2>Markets</h2>
+      <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
+        <Tab eventKey="home" title="Markets">
+          <ActivitiesIndex></ActivitiesIndex>
         </Tab>
-        <Tab className="emg-a" eventKey="profile" title="Services">
-          <h2>services</h2>
+        <Tab eventKey="services" title="Services">
+          <Services></Services>
         </Tab>
-        <Tab className="emg-a" eventKey="contact" title="Prices">
-          <h2>Prices</h2>
+        <Tab eventKey="prices" title="Prices">
+          <Prices></Prices>
         </Tab>
       </Tabs>
     );
