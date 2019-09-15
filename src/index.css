@@ -20,8 +20,11 @@ code {
   background-color: #3e5971;
 }
 
+.navbar-nav > a:hover {
+  box-shadow: 0px -2px 0px 0px rgba(122, 180, 71, 1) inset;
+}
 .navbar-nav > .active {
-  border-bottom: 2px solid #7abd42;
+  box-shadow: 0px -2px 0px 0px rgba(122, 180, 71, 1) inset;
 }
 
 .currentPageTitle::first-letter {
@@ -37,9 +40,6 @@ code {
   margin-bottom: 30px;
 }
 
-img {
-  width: 100%;
-}
 .btn-primary,
 .btn-primary:active,
 .btn-primary:visited {
@@ -276,7 +276,7 @@ ul {
 }
 .submenu-items > li:hover,
 .submenu-items > li.current-menu-item {
-  border-bottom: 2px solid #79b447;
+  box-shadow: 0px -2px 0px 0px rgba(122, 180, 71, 1) inset;
 }
 .submenu-items > li:hover .sub-menu {
   display: block;
@@ -322,4 +322,34 @@ ul.sub-menu li:hover {
   text-decoration: none !important;
   font-size: 14px;
   text-align: center;
+}
+
+.nav {
+  justify-content: center;
+}
+
+.nav-item {
+  color: #7cb34d !important;
+}
+
+.nav-item:hover {
+  box-shadow: 0px -2px 0px 0px rgba(122, 180, 71, 1) inset;
+}
+
+.locationItem {
+  background: url("http://emg.ge/wp-content/themes/emg/images/location.png")
+    left center no-repeat;
+  background-size: auto 73px;
+  background-color: #fff;
+  margin-bottom: 0;
+  color: #0c444a;
+  display: flex;
+  text-decoration: none !important;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+
+  min-height: 85px;
+  padding: 0 0 0 120px;
+  margin-bottom: 15px;
 }

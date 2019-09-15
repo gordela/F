@@ -26,6 +26,7 @@ import FullNews from "./components/fullNews";
 import { getCareers, deleteCareer } from "./services/careerService";
 import EditCareer from "./components/editCareer";
 import { toast } from "react-toastify";
+import Activities from "./components/activities";
 
 class App extends Component {
   state = {
@@ -120,6 +121,7 @@ class App extends Component {
                 />
               )}
             />
+            <Route path="/activities" component={Activities} />
 
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
