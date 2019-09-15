@@ -10,13 +10,7 @@ class Career extends Component {
     const isAdmin = auth.isAdmin();
     return (
       <div className="container">
-        <h1 className="mt-4 mb-3"></h1>
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <a href="index.html">Home</a>
-          </li>
-          <li className="breadcrumb-item active">{this.constructor.name}</li>
-        </ol>
+        <h1 className="currentPageTitle mt-4 mb-3">Career</h1>
         {isAdmin && (
           <Link
             style={{ marginBottom: "10px" }}

@@ -109,10 +109,7 @@ class News extends Component {
             New Project
           </Link>
         )}
-        <br />
-        <h1>
-          <span className="first-letter">N</span>ews
-        </h1>
+        <h1 className="currentPageTitle mt-4 mb-3">News</h1>
         {/* <SearchBox value={searchQuery} onChange={this.handleSearch} /> */}
         <NewsFlex
           count={this.props.count}
