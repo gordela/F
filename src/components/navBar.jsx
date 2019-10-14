@@ -19,77 +19,88 @@ class NavBar extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-md navbar-dark bg-emg fixed-top">
-        <Link to="/" className="navbar-brand text-light">
-          EMG
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarsExampleDefault"
-          aria-controls="navbarsExampleDefault"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul className="navbar-nav mr-auto">
-            <NavLink to="/home" className="nav-link">
-              Home
-            </NavLink>
-            <NavLink to="/about" className="nav-link">
-              About
-            </NavLink>
-            <NavLink to="/activities" className="nav-link">
-              Activities
-            </NavLink>
-            <NavLink to="/projects" className="nav-link">
-              Projects
-            </NavLink>
-            <NavLink to="/news" className="nav-link">
-              News
-            </NavLink>
-            <NavLink to="/career" className="nav-link">
-              Career
-            </NavLink>
-            <NavLink to="/contact" className="nav-link">
-              Contact
-            </NavLink>
-          </ul>
-          <ul className="navbar-nav">
-            <form className="form-inline mt-2 mt-md-0">
-              <input
-                className="form-control mr-sm-2"
-                type="text"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </form>
-            <NavLink to="/portal" className="nav-link">
-              Portal
-            </NavLink>
-            <div className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="dropdown09"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <span className="flag-icon flag-icon-us"> </span> English
-              </a>
-              <div className="dropdown-menu" aria-labelledby="dropdown09">
-                <a className="dropdown-item" href="#ge">
-                  <span className="flag-icon flag-icon-ge"> </span> Georgian
-                </a>
-              </div>
+      <div className="fluid-container navv fixed-top bg-emg-blue">
+        <div className="container">
+          <nav className="navbar navbar-expand-md navbar-dark">
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarCollapse"
+              aria-controls="navbarCollapse"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div
+              className="collapse navbar-collapse justify-content-between"
+              id="navbarCollapse"
+            >
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <NavLink to="/home" className="nav-link">
+                    HOME
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/about" className="nav-link">
+                    ABOUT US
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/activities" className="nav-link">
+                    ACTIVITIES
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/projects" className="nav-link">
+                    PROJECTS
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/news" className="nav-link">
+                    NEWS & MEDIA
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/career" className="nav-link">
+                    CAREER
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/contact" className="nav-link">
+                    CONTACT
+                  </NavLink>
+                </li>
+                <li className="search">
+                  <input type="search" className="search-box" />
+                  <span className="search-button">
+                    <span className="search-icon"></span>
+                  </span>
+                </li>
+              </ul>
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    REGISTER
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    PORTAL
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    EN
+                  </a>
+                </li>
+              </ul>
             </div>
-          </ul>
+          </nav>
         </div>
-      </nav>
+      </div>
     );
   }
 }

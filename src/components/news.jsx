@@ -99,7 +99,7 @@ class News extends Component {
     const { totalCount, data: newss } = this.getPagedData();
 
     return (
-      <div className="container">
+      <React.Fragment>
         {isAdmin && (
           <Link
             style={{ marginBottom: "10px" }}
@@ -109,7 +109,9 @@ class News extends Component {
             New Project
           </Link>
         )}
-        <h1 className="currentPageTitle mt-4 mb-3">News</h1>
+        <div className="container  pt-5">
+          <h1 className="currentPageTitle ">NEWS & MEDIA</h1>
+        </div>
         {/* <SearchBox value={searchQuery} onChange={this.handleSearch} /> */}
         <NewsFlex
           count={this.props.count}
@@ -123,7 +125,7 @@ class News extends Component {
           onPageChange={this.handlePageChange}
           currentPage={currentPage}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }

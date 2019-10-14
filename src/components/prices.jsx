@@ -11,7 +11,7 @@ class Prices extends Component {
           <div className="col-lg-4">
             <img
               src="https://placeholder.com/wp-content/uploads/2019/06/stock-images.png"
-              class="img-fluid"
+              className="img-fluid"
               alt="Responsive image"
             ></img>
           </div>
