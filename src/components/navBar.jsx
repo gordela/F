@@ -10,12 +10,17 @@ class NavBar extends Component {
       email: "",
       isAdmin: "",
       name: ""
-    }
+    },
+    isOpen: false
   };
   componentDidMount() {
     const user = auth.getCurrentUser();
     this.setState({ user });
   }
+
+  handleSearch = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
 
   render() {
     return (
@@ -73,9 +78,9 @@ class NavBar extends Component {
                     CONTACT
                   </NavLink>
                 </li>
-                <li className="search">
+                <li className={this.state.isOpen ? "search open" : "search"}>
                   <input type="search" className="search-box" />
-                  <span className="search-button">
+                  <span className="search-button" onClick={this.handleSearch}>
                     <span className="search-icon"></span>
                   </span>
                 </li>
