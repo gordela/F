@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import auth from "../services/authService";
 import FontAwesome from "react-fontawesome";
-import Moment from "moment";
+import Moment from "react-moment";
 
 class NewsFlex extends Component {
   render() {
@@ -72,7 +72,9 @@ class NewsFlex extends Component {
                     </a>
                   </div>
                   <span class="color-white">
-                    {Moment(Date(news.publishDate)).format("MMM Do YYYY")}
+                    <Moment format="DD MM YYYY" withTitle>
+                      {news.publishDate}
+                    </Moment>
                   </span>
                   {!isAdmin && (
                     <Link

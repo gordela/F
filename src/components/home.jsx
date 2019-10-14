@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProjectFlex from "./projectFlex";
-import Moment from "moment";
+import Moment from "react-moment";
 import emgLogo from "../res/logo.png";
 import certOne from "../res/ea.jpg";
 import certTwo from "../res/gac.png";
@@ -55,7 +55,7 @@ class Home extends Component {
         </div>
         <div class="fluid-container highlight p-5">
           <div class="container card-deck responsive">
-            {newss.slice(0, 3).map(news => (
+            {newss.slice(0, 4).map(news => (
               <div className="card card-emg">
                 <img
                   className="card-img-top"
@@ -78,7 +78,9 @@ class Home extends Component {
                     </a>
                   </div>
                   <div className="color-emg">
-                    {Moment(Date(news.publishDate)).format("MMM Do YYYY")}
+                    <Moment format="DD MM YYYY" withTitle>
+                      {news.publishDate}
+                    </Moment>
                   </div>
                 </div>
               </div>

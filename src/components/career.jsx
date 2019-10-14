@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import auth from "../services/authService";
 import careerPlus from "../res/plus.png";
+import Moment from "react-moment";
+
 class Career extends Component {
   state = {};
   render() {
@@ -86,8 +88,16 @@ class Career extends Component {
                             </React.Fragment>
                           )}
                         </div>
-                        <p className="career-date m-2">{career.published}</p>
-                        <p className="career-date m-2">{career.endDate}</p>
+                        <p className="career-date m-2">
+                          <Moment format="D MMM YYYY" withTitle>
+                            {career.published}
+                          </Moment>
+                        </p>
+                        <p className="career-date m-2">
+                          <Moment format="D MMM YYYY" withTitle>
+                            {career.endDate}
+                          </Moment>
+                        </p>
                       </h2>
                     </div>
                     <div

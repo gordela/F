@@ -14,7 +14,7 @@ class News extends Component {
     newss: [],
     categories: [],
     branches: [],
-    pageSize: 4,
+    pageSize: 6,
     currentPage: 1,
     searchQuery: "",
     selectedStyle: null,
