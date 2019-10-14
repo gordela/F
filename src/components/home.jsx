@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import ProjectFlex from "./projectFlex";
 import Moment from "react-moment";
 import emgLogo from "../res/logo.png";
 import certOne from "../res/ea.jpg";
 import certTwo from "../res/gac.png";
 import certThree from "../res/powerpoint.png";
 import FontAwesome from "react-fontawesome";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.min.js";
 
 class Home extends Component {
   state = {};
@@ -53,8 +55,8 @@ class Home extends Component {
         <div className="container">
           <h2 className="currentPageTitle">News & Media</h2>
         </div>
-        <div class="fluid-container highlight p-5">
-          <div class="container card-deck responsive">
+        <div className="fluid-container highlight p-5">
+          <div className="container card-deck responsive">
             {newss.slice(0, 4).map(news => (
               <div className="card card-emg">
                 <img
@@ -64,7 +66,7 @@ class Home extends Component {
                 />
                 <div className="card-body">
                   <h5 className="card-title">
-                    <span class="inner-shadow-emg">{news.title}</span>
+                    <span className="inner-shadow-emg">{news.title}</span>
                   </h5>
                   <p className="card-text">{news.shortDesc}</p>
                 </div>
@@ -88,11 +90,159 @@ class Home extends Component {
           </div>
         </div>
 
-        <div className="container p-3">
+        {/* PROJECTS START */}
+        <div className="container">
           <h2 className="currentPageTitle">Projects</h2>
-          <ProjectFlex projects={projects.slice(0, 4)}></ProjectFlex>
-          <hr />
         </div>
+        <div className="fluid-container p-5">
+          <div className="container card-deck projects-responsive">
+            {projects.slice(0, 4).map(project => (
+              <div className="card card-emg-dark">
+                <img
+                  className="card-img-top"
+                  src={project.shortImage}
+                  alt="Card image cap"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">
+                    <span className="inner-shadow-emg">{project.title}</span>
+                  </h5>
+                  <p className="card-text">{project.shortDesc}</p>
+                </div>
+                <div className="card-body d-flex justify-content-between">
+                  <div>
+                    <a href="#" className="card-link color-emg">
+                      <FontAwesome className="fab fa-facebook-f"></FontAwesome>
+                    </a>
+                    <a href="#" className="card-link color-emg">
+                      <FontAwesome className="fab fa-twitter"></FontAwesome>
+                    </a>
+                  </div>
+
+                  <button className="emg-button">Make Feedback</button>
+                  <div className="color-emg">
+                    <Moment format="DD MM YYYY" withTitle>
+                      {project.publishDate}
+                    </Moment>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* PROJECTS END */}
+        {/* Reviews start */}
+        <div className="fluid-container highlight p-5">
+          <div className="d-flex justify-content-center">
+            <h1 className="p-5">WHAT CUSTOMERS SAY</h1>
+          </div>
+          <div className="container card-deck reviews-slick">
+            <div className="card card-emg-dark">
+              <div className="row no-gutters">
+                <div className="col-sm-4">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Valeriy_Konovalyuk_3x4.jpg"
+                    className="card-img rounded-circle"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-sm-8">
+                  <div className="card-body">
+                    <h5 className="card-title">NAME SURNAME</h5>
+                    <p className="p-customers">COMPANY NAME</p>
+                    <p className="p-customers">
+                      <small className="text-muted">POSITION</small>
+                    </p>
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star" />
+                    <span className="fa fa-star" />
+                  </div>
+                </div>
+                <div className="col-sm-12">
+                  <p className="p-customers">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="card card-emg-dark">
+              <div className="row no-gutters">
+                <div className="col-sm-4">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Valeriy_Konovalyuk_3x4.jpg"
+                    className="card-img rounded-circle"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-sm-8">
+                  <div className="card-body">
+                    <h5 className="card-title">NAME SURNAME</h5>
+                    <p className="p-customers">COMPANY NAME</p>
+                    <p className="p-customers">
+                      <small className="text-muted">POSITION</small>
+                    </p>
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star" />
+                    <span className="fa fa-star" />
+                  </div>
+                </div>
+                <div className="col-sm-12">
+                  <p className="p-customers">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="card card-emg-dark">
+              <div className="row no-gutters">
+                <div className="col-sm-4">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Valeriy_Konovalyuk_3x4.jpg"
+                    className="card-img rounded-circle"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-sm-8">
+                  <div className="card-body">
+                    <h5 className="card-title">NAME SURNAME</h5>
+                    <p className="p-customers">COMPANY NAME</p>
+                    <p className="p-customers">
+                      <small className="text-muted">POSITION</small>
+                    </p>
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star" />
+                    <span className="fa fa-star" />
+                  </div>
+                </div>
+                <div className="col-sm-12">
+                  <p className="p-customers">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="d-flex justify-content-center p-5">
+            <button className="emg-button pt-2 pb-2 pl-5 pr-5">
+              MAKE FEEDBACK
+            </button>
+          </div>
+        </div>
+        {/* Reviews end */}
+        <div className="container p-5"></div>
       </React.Fragment>
     );
   }

@@ -10,7 +10,8 @@ import StrategicVision from "./strategicVision";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Branches from "./branches";
-
+import partnerImage from "../res/partner.png";
+import locationImage from "../res/location.png";
 class About extends Component {
   state = {};
   render() {
@@ -348,7 +349,7 @@ class About extends Component {
                 <div className="col-sm-6 col-md-3  p-1  ">
                   <div className="border-emg row logoes justify-content-center">
                     <img
-                      src="partner.PNG"
+                      src={partnerImage}
                       className="img-fluid p-1 align-self-center"
                     />
                   </div>
@@ -356,7 +357,7 @@ class About extends Component {
                 <div className="col-sm-6 col-md-3  p-1  ">
                   <div className="border-emg row logoes justify-content-center">
                     <img
-                      src="partner.PNG"
+                      src={partnerImage}
                       className="img-fluid p-1 align-self-center"
                     />
                   </div>
@@ -364,7 +365,7 @@ class About extends Component {
                 <div className="col-sm-6 col-md-3  p-1  ">
                   <div className="border-emg row logoes justify-content-center">
                     <img
-                      src="partner.PNG"
+                      src={partnerImage}
                       className="img-fluid p-1 align-self-center"
                     />
                   </div>
@@ -372,7 +373,7 @@ class About extends Component {
                 <div className="col-sm-6 col-md-3  p-1  ">
                   <div className="border-emg row logoes justify-content-center">
                     <img
-                      src="partner.PNG"
+                      src={partnerImage}
                       className="img-fluid p-1 align-self-center"
                     />
                   </div>
@@ -380,7 +381,7 @@ class About extends Component {
                 <div className="col-sm-6 col-md-3  p-1  ">
                   <div className="border-emg row logoes justify-content-center">
                     <img
-                      src="partner.PNG"
+                      src={partnerImage}
                       className="img-fluid p-1 align-self-center"
                     />
                   </div>
@@ -388,7 +389,7 @@ class About extends Component {
                 <div className="col-sm-6 col-md-3  p-1  ">
                   <div className="border-emg row logoes justify-content-center">
                     <img
-                      src="partner.PNG"
+                      src={partnerImage}
                       className="img-fluid p-1 align-self-center"
                     />
                   </div>
@@ -396,7 +397,7 @@ class About extends Component {
                 <div className="col-sm-6 col-md-3  p-1  ">
                   <div className="border-emg row logoes justify-content-center">
                     <img
-                      src="partner.PNG"
+                      src={partnerImage}
                       className="img-fluid p-1 align-self-center"
                     />
                   </div>
@@ -404,7 +405,7 @@ class About extends Component {
                 <div className="col-sm-6 col-md-3  p-1  ">
                   <div className="border-emg row logoes justify-content-center">
                     <img
-                      src="partner.PNG"
+                      src={partnerImage}
                       className="img-fluid p-1 align-self-center"
                     />
                   </div>
@@ -423,7 +424,7 @@ class About extends Component {
               <div className="row">
                 <div className="col-sm-12 col-md-6 row">
                   <div className="col-6 row">
-                    <img className="location" src="./location.png" alt="" />
+                    <img className="location" src={locationImage} alt="" />
                     <div className="column mt-3">
                       <p className="color-emg" style={{ margin: 0 }}>
                         Head office
@@ -432,7 +433,7 @@ class About extends Component {
                     </div>
                   </div>
                   <div className="col-6 row">
-                    <img className="location" src="./location.png" alt="" />
+                    <img className="location" src={locationImage} alt="" />
                     <div className="column mt-3">
                       <p className="color-emg" style={{ margin: 0 }}>
                         Head office
@@ -441,7 +442,7 @@ class About extends Component {
                     </div>
                   </div>
                   <div className="col-6 row">
-                    <img className="location" src="./location.png" alt="" />
+                    <img className="location" src={locationImage} alt="" />
                     <div className="column mt-3">
                       <p className="color-emg" style={{ margin: 0 }}>
                         Head office
@@ -450,7 +451,7 @@ class About extends Component {
                     </div>
                   </div>
                   <div className="col-6 row">
-                    <img className="location" src="./location.png" alt="" />
+                    <img className="location" src={locationImage} alt="" />
                     <div className="column mt-3">
                       <p className="color-emg" style={{ margin: 0 }}>
                         Head office
@@ -459,7 +460,7 @@ class About extends Component {
                     </div>
                   </div>
                   <div className="col-6 row">
-                    <img className="location" src="./location.png" alt="" />
+                    <img className="location" src={locationImage} alt="" />
                     <div className="column mt-3">
                       <p className="color-emg" style={{ margin: 0 }}>
                         Head office
@@ -468,7 +469,7 @@ class About extends Component {
                     </div>
                   </div>
                   <div className="col-6 row">
-                    <img className="location" src="./location.png" alt="" />
+                    <img className="location" src={locationImage} alt="" />
                     <div className="column mt-3">
                       <p className="color-emg" style={{ margin: 0 }}>
                         Head office
@@ -477,7 +478,7 @@ class About extends Component {
                     </div>
                   </div>
                   <div className="col-6 row">
-                    <img className="location" src="./location.png" alt="" />
+                    <img className="location" src={locationImage} alt="" />
                     <div className="column mt-3">
                       <p className="color-emg" style={{ margin: 0 }}>
                         Head office
@@ -486,7 +487,7 @@ class About extends Component {
                     </div>
                   </div>
                   <div className="col-6 row">
-                    <img className="location" src="./location.png" alt="" />
+                    <img className="location" src={locationImage} alt="" />
                     <div className="column mt-3">
                       <p className="color-emg" style={{ margin: 0 }}>
                         Head office
