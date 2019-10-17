@@ -47,8 +47,10 @@ class Projects extends Component {
 
     if (count === 0) return <p>There are no categories in the database</p>;
     return (
-      <div className="container">
-        <h1 className="currentPageTitle mt-4 mb-3">Projects</h1>
+      <div className="container pt-5">
+        <h1 className="currentPageTitle">PROJECTS</h1>
+        <h5 className="color-emg pb-4">ROADS, HIGHWAYS, BRIDGES, TUNNELS</h5>
+
         {isAdmin && (
           <React.Fragment>
             <Link

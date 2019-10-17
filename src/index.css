@@ -386,3 +386,21 @@ ul > li {
     width: 30% !important;
   }
 }
+
+.news-link {
+  color: white;
+}
+
+.news-link:hover {
+  color: #78c039;
+}
+
+.home-news-link {
+  color: black;
+  text-decoration: none;
+}
+
+.home-news-link:hover {
+  color: green;
+  text-decoration: none;
+}

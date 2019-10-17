@@ -29,7 +29,9 @@ class NewsFlex extends Component {
                 <div className="row">
                   <h5 className="card-title">
                     <span className="inner-shadow-emg  white-emg">
-                      {news.title}
+                      <Link className="news-link" to={"/news/" + news._id}>
+                        {news.title}
+                      </Link>
                     </span>
                   </h5>
                   <p className="card-text white-emg">
@@ -77,10 +79,7 @@ class NewsFlex extends Component {
                     </Moment>
                   </span>
                   {!isAdmin && (
-                    <Link
-                      className="card-link white-emg"
-                      to={"/news/" + news._id}
-                    >
+                    <Link className="news-link" to={"/news/" + news._id}>
                       Read More
                     </Link>
                   )}

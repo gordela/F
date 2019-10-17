@@ -8,6 +8,7 @@ import FontAwesome from "react-fontawesome";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.min.js";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   state = {};
@@ -66,7 +67,11 @@ class Home extends Component {
                 />
                 <div className="card-body">
                   <h5 className="card-title">
-                    <span className="inner-shadow-emg">{news.title}</span>
+                    <span className="inner-shadow-emg">
+                      <Link className="home-news-link" to={"/news/" + news._id}>
+                        {news.title}
+                      </Link>
+                    </span>
                   </h5>
                   <p className="card-text">{news.shortDesc}</p>
                 </div>
