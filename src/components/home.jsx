@@ -121,7 +121,7 @@ class Home extends Component {
         </div>
         <div className="fluid-container highlight p-5">
           <Slider className="container" {...responsive}>
-            {newss.slice(0, 5).map(news => (
+            {newss.slice(0, 8).map(news => (
               <div>
                 <div className="card card-emg mr-4">
                   <img
@@ -169,7 +169,7 @@ class Home extends Component {
         </div>
         <div className="fluid-container p-5 ">
           <Slider className="container" {...projectsResponsive}>
-            {projects.slice(0, 4).map(project => (
+            {projects.slice(0, 8).map(project => (
               <div>
                 <div className="card card-emg-dark mr-4">
                   <img
@@ -179,7 +179,14 @@ class Home extends Component {
                   />
                   <div className="card-body">
                     <h5 className="card-title">
-                      <span className="inner-shadow-emg">{project.title}</span>
+                      <span className="inner-shadow-emg">
+                        <Link
+                          className="home-news-link"
+                          to={"/project/" + project._id}
+                        >
+                          {project.title}
+                        </Link>
+                      </span>
                     </h5>
                     <p className="card-text">{project.shortDesc}</p>
                   </div>

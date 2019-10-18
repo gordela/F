@@ -1,90 +1,139 @@
 import React, { Component } from "react";
+import { getProject } from "../services/projectService";
 
 class FullProject extends Component {
-  state = {};
+  state = { project: {} };
+  async componentDidMount() {
+    const { id } = this.props.match.params;
+    const { data } = await getProject(id);
+    this.setState({ project: data });
+  }
   render() {
+    const { title, longDesc, longImage } = this.state.project;
     return (
-      <div className="container">
-        {/* Page Heading/Breadcrumbs */}
-        <h1 className="mt-4 mb-3">
-          Portfolio Item
-          <small>Subheading</small>
-        </h1>
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <a href="index.html">Home</a>
-          </li>
-          <li className="breadcrumb-item active">Portfolio Item</li>
-        </ol>
-        {/* Portfolio Item Row */}
-        <div className="row">
-          <div className="col-md-8">
-            <img
-              className="img-fluid"
-              src="http://placehold.it/750x500"
-              alt=""
-            />
-          </div>
-          <div className="col-md-4">
-            <h3 className="my-3">Project Description</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              viverra euismod odio, gravida pellentesque urna varius vitae. Sed
-              dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris
-              ultricies, justo eu convallis placerat, felis enim.
-            </p>
-            <h3 className="my-3">Project Details</h3>
-            <ul>
-              <li>Lorem Ipsum</li>
-              <li>Dolor Sit Amet</li>
-              <li>Consectetur</li>
-              <li>Adipiscing Elit</li>
-            </ul>
+      <React.Fragment>
+        <div className="container pt-5">
+          <h1 className="currentPageTitle ">Projects</h1>
+          <h5 className="color-emg pb-4">{title}</h5>
+        </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <p>{longDesc}</p>
+            </div>
+            <div className="col-12 col-md-6">
+              <img src={longImage} alt={title} className="img-fluid" />
+            </div>
           </div>
         </div>
-        {/* /.row */}
-        {/* Related Projects Row */}
-        <h3 className="my-4">Related Projects</h3>
-        <div className="row">
-          <div className="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-              <img
-                className="img-fluid"
-                src="http://placehold.it/500x300"
-                alt=""
-              />
-            </a>
+        <div className="container p-5"></div>
+
+        <div className="fluid-container highlight p-5">
+          <div className="d-flex justify-content-center">
+            <h1 className="p-5">WHAT CUSTOMERS SAY</h1>
           </div>
-          <div className="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-              <img
-                className="img-fluid"
-                src="http://placehold.it/500x300"
-                alt=""
-              />
-            </a>
-          </div>
-          <div className="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-              <img
-                className="img-fluid"
-                src="http://placehold.it/500x300"
-                alt=""
-              />
-            </a>
-          </div>
-          <div className="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-              <img
-                className="img-fluid"
-                src="http://placehold.it/500x300"
-                alt=""
-              />
-            </a>
+          <div className="container card-deck reviews-slick">
+            <div className="card card-emg-dark">
+              <div className="row no-gutters">
+                <div className="col-sm-4">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Valeriy_Konovalyuk_3x4.jpg"
+                    className="card-img rounded-circle"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-sm-8">
+                  <div className="card-body">
+                    <h5 className="card-title">NAME SURNAME</h5>
+                    <p className="p-customers">COMPANY NAME</p>
+                    <p className="p-customers">
+                      <small className="text-muted">POSITION</small>
+                    </p>
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star" />
+                    <span className="fa fa-star" />
+                  </div>
+                </div>
+                <div className="col-sm-12">
+                  <p className="p-customers">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="card card-emg-dark">
+              <div className="row no-gutters">
+                <div className="col-sm-4">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Valeriy_Konovalyuk_3x4.jpg"
+                    className="card-img rounded-circle"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-sm-8">
+                  <div className="card-body">
+                    <h5 className="card-title">NAME SURNAME</h5>
+                    <p className="p-customers">COMPANY NAME</p>
+                    <p className="p-customers">
+                      <small className="text-muted">POSITION</small>
+                    </p>
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star" />
+                    <span className="fa fa-star" />
+                  </div>
+                </div>
+                <div className="col-sm-12">
+                  <p className="p-customers">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="card card-emg-dark">
+              <div className="row no-gutters">
+                <div className="col-sm-4">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Valeriy_Konovalyuk_3x4.jpg"
+                    className="card-img rounded-circle"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-sm-8">
+                  <div className="card-body">
+                    <h5 className="card-title">NAME SURNAME</h5>
+                    <p className="p-customers">COMPANY NAME</p>
+                    <p className="p-customers">
+                      <small className="text-muted">POSITION</small>
+                    </p>
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star checked" />
+                    <span className="fa fa-star" />
+                    <span className="fa fa-star" />
+                  </div>
+                </div>
+                <div className="col-sm-12">
+                  <p className="p-customers">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        {/* /.row */}
-      </div>
+        <div className="container p-5"></div>
+      </React.Fragment>
     );
   }
 }

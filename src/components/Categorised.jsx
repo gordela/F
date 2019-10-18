@@ -109,43 +109,43 @@ class Categorised extends Component {
     let isAdmin = false;
     if (user) isAdmin = user.isAdmin;
 
-    if (count === 0) return <p>There are no projects in the database</p>;
+    if (count === 0)
+      return <p className="pt-8">There are no projects in the database</p>;
     const { totalCount, data: projects } = this.getPagedData();
 
     return (
-      <div className="container">
-        {isAdmin && (
-          <Link
-            style={{ marginBottom: "10px" }}
-            className="btn btn-primary"
-            to="/projects/new"
-          >
-            New Project
-          </Link>
-        )}
-        <h1 className="mt-4 mb-3 pt-5">
-          <span className="first-letter"></span>
-        </h1>
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <a href="index.html">Home</a>
-          </li>
-          <li className="breadcrumb-item active">{category.name}</li>
-        </ol>
-        {/* <SearchBox value={searchQuery} onChange={this.handleSearch} /> */}
-        <ProjectFlex
-          count={this.props.count}
-          onRenewBag={this.props.onRenewBag}
-          projects={projects}
-          onDelete={this.handleDelete}
-        />
-        <Pagination
-          itemsCount={totalCount}
-          pageSize={pageSize}
-          onPageChange={this.handlePageChange}
-          currentPage={currentPage}
-        />
-      </div>
+      <React.Fragment>
+        <div className="container pt-5">
+          <h1 className="currentPageTitle">PROJECTS</h1>
+          <h5 className="color-emg pb-4">{category.name}</h5>
+        </div>
+        <div className="fluid-container">
+          {isAdmin && (
+            <Link
+              style={{ marginBottom: "10px" }}
+              className="btn btn-primary"
+              to="/projects/new"
+            >
+              New Project
+            </Link>
+          )}
+
+          {/* <SearchBox value={searchQuery} onChange={this.handleSearch} /> */}
+          <ProjectFlex
+            count={this.props.count}
+            onRenewBag={this.props.onRenewBag}
+            projects={projects}
+            onDelete={this.handleDelete}
+          />
+          <Pagination
+            itemsCount={totalCount}
+            pageSize={pageSize}
+            onPageChange={this.handlePageChange}
+            currentPage={currentPage}
+          />
+        </div>
+        <div className="container p-5"></div>
+      </React.Fragment>
     );
   }
 }

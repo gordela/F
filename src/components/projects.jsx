@@ -45,12 +45,12 @@ class Projects extends Component {
     let isAdmin = false;
     if (user) isAdmin = user.isAdmin;
 
-    if (count === 0) return <p>There are no categories in the database</p>;
+    if (count === 0)
+      return <p className="pt-5">There are no categories in the database</p>;
     return (
       <React.Fragment>
         <div className="container pt-5">
           <h1 className="currentPageTitle">PROJECTS</h1>
-          <h5 className="color-emg pb-4">ROADS, HIGHWAYS, BRIDGES, TUNNELS</h5>
         </div>
         {isAdmin && (
           <React.Fragment>
@@ -71,12 +71,13 @@ class Projects extends Component {
             </Link>
           </React.Fragment>
         )}
-        <hr />
+
         <CategoriesFlex
           projects={projects}
           categories={categories}
           onDelete={this.handleDelete}
         />
+        <div className="container p-5"></div>
       </React.Fragment>
     );
   }

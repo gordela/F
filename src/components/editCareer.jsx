@@ -58,8 +58,8 @@ class EditCareer extends Form {
 
   render() {
     return (
-      <div>
-        <h1>Edit Project</h1>
+      <div className="pt-5">
+        <h1>Edit Career</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
 

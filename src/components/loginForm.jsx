@@ -33,7 +33,7 @@ class LoginForm extends Form {
   render() {
     if (auth.getCurrentUser().name) return <Redirect to="/" />;
     return (
-      <div>
+      <div className="pt-8">
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("email", "Email")}
           {this.renderInput("password", "Password", "password")}

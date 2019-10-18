@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import auth from "../services/authService";
+import FontAwesome from "react-fontawesome";
 
 class ProjectFlex extends Component {
   render() {
@@ -11,39 +12,58 @@ class ProjectFlex extends Component {
     return (
       <div className="row">
         {projects.map(project => (
-          <div
-            key={project._id}
-            className="col-lg-3 col-md-4 col-sm-6 portfolio-item"
-          >
-            <div className="card h-100">
+          <div key={project._id} className="card m-1">
+            <div className="card-body project-body">
               <Link to={"/project/" + project._id}>
-                <img
-                  className="card-img-top"
-                  src={project.shortImage}
-                  alt={project.shortDesc}
-                />
+                <div className="project vh-50 d-flex column align-items-end">
+                  <h5 className="card-title project-title-container pr-4 pl-4 pt-1 pb-2">
+                    <span className="inner-shadow-emg ">{project.title}</span>
+                  </h5>
+                </div>
               </Link>
-              <div className="card-body">
-                <h4 className="card-title">
-                  <a href="#">{project.title}</a>
-                </h4>
-                <p className="card-text">{project.shortDesc}</p>
-                <p className="card-text">
-                  <b>Duration:</b> {project.duration} Hours
-                </p>
-                <p className="card-text">
-                  <b>Client:</b> {project.client}
-                </p>
+              <p className="card-text p-2">
+                {project.shortDesc}
+                <br />
+                <span className="color-emg">Client: </span> {project.client}
+                <br />
+                <span className="color-emg">Size/Area: </span> ???
+                <br />
+                <span className="color-emg">
+                  Number of employed people:{" "}
+                </span>{" "}
+                ???
+                <br />
+                <span className="color-emg">Duration: </span> {project.duration}
+                <br />
+                <span className="color-emg">Conducted works: </span> ???
+                <br />
+                <span className="color-emg">Partners: </span> ???
+                <br />
+                <span className="color-emg">
+                  Total cost of the project:{" "}
+                </span>{" "}
+                ???
+              </p>
+            </div>
+            <div className="card-footer text-center">
+              <small className="text-muted row justify-content-between">
+                <div>
+                  <a href="#" className="card-link-emg color-emg ">
+                    <FontAwesome className="fab fa-facebook-f"></FontAwesome>
+                  </a>
+                  <a href="#" className="card-link-emg color-emg">
+                    <FontAwesome className="fab fa-twitter"></FontAwesome>
+                  </a>
+                </div>
                 {!isAdmin && (
                   <Button
                     onClick={() => onDelete(project)}
                     variant="btn emg-btn"
-                    className="mt-auto card-btn btn btn-primary"
+                    className="emg-button p-1"
                   >
                     Make Feedback
                   </Button>
                 )}
-
                 {isAdmin && (
                   <React.Fragment>
                     <Link
@@ -63,7 +83,8 @@ class ProjectFlex extends Component {
                     <br />
                   </React.Fragment>
                 )}
-              </div>
+                <div className="color-emg m-2">01.20.2019</div>
+              </small>
             </div>
           </div>
         ))}

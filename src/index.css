@@ -259,6 +259,10 @@ ul > li {
   border: none !important;
 }
 
+.m-0 {
+  margin: 0;
+}
+
 .nav-link-emg {
   color: black !important;
 }
@@ -293,7 +297,8 @@ ul > li {
 }
 
 .card-link-emg {
-  margin-left: 0.1rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
 }
 
 .checked {
@@ -453,4 +458,9 @@ a {
 
 a:hover {
   text-decoration: none;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #78c039;
 }
