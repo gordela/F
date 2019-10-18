@@ -8,33 +8,29 @@ class CategoriesFlex extends Component {
     const { categories, onDelete, projects } = this.props;
     const isAdmin = auth.isAdmin();
     return (
-      <div className="row">
-        {categories.map(project => (
-          <div key={project._id} className="col-md-6 col-lg-4">
-            <div className="card border-0 transform-on-hover">
+      <div class="fluid-container">
+        <div class="row">
+          {categories.map(project => (
+            <div key={project._id} className="col-12 col-md-2  p-3">
               <Link
-                className="lightbox"
+                className="lightbox categoryTitle"
                 to={{
                   pathname: "/projects/category/" + project._id,
                   state: { projects }
                 }}
               >
-                <img
-                  src={project.image}
-                  alt="Card Image"
-                  className="card-img-top"
-                />
+                <div
+                  className="project-bg row justify-content-center align-items-center "
+                  style={{
+                    background: `linear-gradient(rgba(10, 87, 128, 0.4),rgba(10, 87, 128, 0.4)),url(${project.image})`
+                  }}
+                >
+                  <span className=" text-center">{project.name}</span>
+                </div>
               </Link>
-              <div className="card-body">
-                <h6>
-                  <Link to={"/projects/category/" + project._id}>
-                    {project.name}
-                  </Link>
-                </h6>
-              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   }

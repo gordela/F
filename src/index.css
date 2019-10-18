@@ -175,6 +175,7 @@ body {
 }
 .thumbnail {
   height: 30vh;
+
   background-image: url("res/background.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -366,6 +367,10 @@ ul > li {
   }
 }
 
+.bg-white {
+  background-color: white;
+}
+
 .career-tab {
   text-decoration: none !important;
 }
@@ -401,6 +406,51 @@ ul > li {
 }
 
 .home-news-link:hover {
-  color: green;
+  color: #78c039;
+  text-decoration: none;
+}
+
+.project-bg {
+  height: 10vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .project-bg {
+    height: 50vh;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .project-bg {
+    height: 40vh;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .project-bg {
+    height: 50vh;
+  }
+}
+
+.categoryTitle {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  text-decoration: none;
+}
+
+.categoryTitle:hover {
+  color: #78c039;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
   text-decoration: none;
 }

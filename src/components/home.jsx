@@ -9,11 +9,74 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.min.js";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
 
 class Home extends Component {
   state = {};
 
   render() {
+    const projectsResponsive = {
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1210,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true
+          }
+        },
+        {
+          breakpoint: 990,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 780,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    };
+    const responsive = {
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true
+          }
+        },
+        {
+          breakpoint: 770,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 590,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    };
     const { projects, newss } = this.props;
     return (
       <React.Fragment>
@@ -57,83 +120,90 @@ class Home extends Component {
           <h2 className="currentPageTitle">News & Media</h2>
         </div>
         <div className="fluid-container highlight p-5">
-          <div className="container card-deck responsive">
-            {newss.slice(0, 4).map(news => (
-              <div className="card card-emg">
-                <img
-                  className="card-img-top"
-                  src={news.shortImage}
-                  alt="Card image cap"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    <span className="inner-shadow-emg">
-                      <Link className="home-news-link" to={"/news/" + news._id}>
-                        {news.title}
-                      </Link>
-                    </span>
-                  </h5>
-                  <p className="card-text">{news.shortDesc}</p>
-                </div>
-                <div className="card-body d-flex justify-content-between">
-                  <div>
-                    <a href="#" className="card-link color-emg">
-                      <FontAwesome className="fab fa-facebook-f"></FontAwesome>
-                    </a>
-                    <a href="#" className="card-link color-emg">
-                      <FontAwesome className="fab fa-twitter"></FontAwesome>
-                    </a>
+          <Slider className="container" {...responsive}>
+            {newss.slice(0, 5).map(news => (
+              <div>
+                <div className="card card-emg mr-4">
+                  <img
+                    className="card-img-top"
+                    src={news.shortImage}
+                    alt="Card image cap"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      <span className="inner-shadow-emg">
+                        <Link
+                          className="home-news-link"
+                          to={"/news/" + news._id}
+                        >
+                          {news.title}
+                        </Link>
+                      </span>
+                    </h5>
+                    <p className="card-text">{news.shortDesc}</p>
                   </div>
-                  <div className="color-emg">
-                    <Moment format="DD MM YYYY" withTitle>
-                      {news.publishDate}
-                    </Moment>
+                  <div className="card-body d-flex justify-content-between">
+                    <div>
+                      <a href="#" className="card-link color-emg">
+                        <FontAwesome className="fab fa-facebook-f"></FontAwesome>
+                      </a>
+                      <a href="#" className="card-link color-emg">
+                        <FontAwesome className="fab fa-twitter"></FontAwesome>
+                      </a>
+                    </div>
+                    <div className="color-emg">
+                      <Moment format="DD MM YYYY" withTitle>
+                        {news.publishDate}
+                      </Moment>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
+          </Slider>
         </div>
 
         {/* PROJECTS START */}
         <div className="container">
           <h2 className="currentPageTitle">Projects</h2>
         </div>
-        <div className="fluid-container p-5">
-          <div className="container card-deck projects-responsive">
+        <div className="fluid-container p-5 ">
+          <Slider className="container" {...projectsResponsive}>
             {projects.slice(0, 4).map(project => (
-              <div className="card card-emg-dark">
-                <img
-                  className="card-img-top"
-                  src={project.shortImage}
-                  alt="Card image cap"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    <span className="inner-shadow-emg">{project.title}</span>
-                  </h5>
-                  <p className="card-text">{project.shortDesc}</p>
-                </div>
-                <div className="card-body d-flex justify-content-between">
-                  <div>
-                    <a href="#" className="card-link color-emg">
-                      <FontAwesome className="fab fa-facebook-f"></FontAwesome>
-                    </a>
-                    <a href="#" className="card-link color-emg">
-                      <FontAwesome className="fab fa-twitter"></FontAwesome>
-                    </a>
+              <div>
+                <div className="card card-emg-dark mr-4">
+                  <img
+                    className="card-img-top"
+                    src={project.shortImage}
+                    alt="Card image cap"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      <span className="inner-shadow-emg">{project.title}</span>
+                    </h5>
+                    <p className="card-text">{project.shortDesc}</p>
                   </div>
+                  <div className="card-body d-flex justify-content-between">
+                    <div>
+                      <a href="#" className="card-link color-emg">
+                        <FontAwesome className="fab fa-facebook-f"></FontAwesome>
+                      </a>
+                      <a href="#" className="card-link color-emg">
+                        <FontAwesome className="fab fa-twitter"></FontAwesome>
+                      </a>
+                    </div>
 
-                  <button className="emg-button">Make Feedback</button>
-                  <div className="color-emg">
-                    <Moment format="DD MM YYYY" withTitle>
-                      {project.publishDate}
-                    </Moment>
+                    <button className="emg-button">Make Feedback</button>
+                    <div className="color-emg">
+                      <Moment format="DD MM YYYY" withTitle>
+                        {project.publishDate}
+                      </Moment>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
+          </Slider>
         </div>
         {/* PROJECTS END */}
         {/* Reviews start */}
